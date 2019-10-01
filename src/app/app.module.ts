@@ -4,6 +4,7 @@ import { TournamentsListComponent } from './tournaments/tournaments-list.compone
 import { TournamentAppComponent } from './tournament-app.component';
 import { TournamentThumbnailComponent } from './tournaments/tournament-thumbnail.component';
 import { NavBarComponent } from './nav/navbar.component';
+import { TournamentService } from './tournaments/shared/tournament.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { NavBarComponent } from './nav/navbar.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [TournamentService],
   bootstrap: [TournamentAppComponent]
 })
 export class AppModule { }

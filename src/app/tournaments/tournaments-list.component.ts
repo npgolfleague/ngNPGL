@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TournamentService } from './shared/tournament.service';
 
 
 @Component({
@@ -7,19 +8,23 @@ import { Component } from '@angular/core';
     <div>
         <h1>Upcoming Tournaments</h1>
         <hr>
-        <tournament-thumbnail [tournament]="tournament1"> </tournament-thumbnail>
+        <div class="row">
+            <div *ngFor="let tournament of tournaments" class="col-md-5">
+                <tournament-thumbnail [tournament]="tournament"> </tournament-thumbnail>
+            </div>
+        </div>
     </div>
   `
 })
 
-export class TournamentsListComponent {
+export class TournamentsListComponent implements OnInit {
+    tournaments:any[]
 
-    tournament1 = {
-        id: 1,
-        league: 'NPGL',
-        date: '09/26/20',
-        time: '05:30 pm',
-        course: 'Eagles Forest'
+    constructor(private tournamentService: TournamentService) {
+        
     }
 
+    ngOnInit(){
+        this.tournaments = this.tournamentService.getTournaments()
+    }
 }
