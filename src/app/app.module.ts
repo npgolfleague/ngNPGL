@@ -1,16 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { TournamentsListComponent } from './tournaments/tournaments-list.component';
+import { TournamentAppComponent } from './tournament-app.component';
+import { TournamentThumbnailComponent } from './tournaments/tournament-thumbnail.component';
+import { NavBarComponent } from './nav/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    TournamentAppComponent,
+    TournamentsListComponent,
+    TournamentThumbnailComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [TournamentAppComponent]
 })
 export class AppModule { }
