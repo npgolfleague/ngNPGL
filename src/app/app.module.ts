@@ -5,6 +5,7 @@ import { TournamentAppComponent } from './tournament-app.component';
 import { TournamentThumbnailComponent } from './tournaments/tournament-thumbnail.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { TournamentService } from './tournaments/shared/tournament.service';
+import { ToastrService } from './common/toastr.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TournamentService } from './tournaments/shared/tournament.service';
   imports: [
     BrowserModule
   ],
-  providers: [TournamentService],
+  providers: [TournamentService, ToastrService],
   bootstrap: [TournamentAppComponent]
 })
 export class AppModule { }
