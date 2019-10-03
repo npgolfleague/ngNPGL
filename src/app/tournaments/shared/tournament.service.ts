@@ -7,6 +7,9 @@ export class TournamentService {
     getTournaments(){
         return TOURNAMENTS
     }
+    getTournament(id:number) {
+        return TOURNAMENTS.find(tournament => tournament.id === id)
+    }
 }
 
 const TOURNAMENTS = [
@@ -16,6 +19,7 @@ const TOURNAMENTS = [
     date: '09/26/20',
     time: '05:30 pm',
     course: 'Eagles Forest',
+    imageUrl: './assets/images/NPGL.png',
     pairings: [
         {
         startingHole: 1,
@@ -60,6 +64,7 @@ const TOURNAMENTS = [
         date: '10/03/20',
         time: '05:30 pm',
         course: 'Eagles Forest',
+        imageUrl: './assets/images/NPGL.png',
         pairings: [
             {
             startingHole: 2,

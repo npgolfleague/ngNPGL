@@ -4,7 +4,6 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { ToastrService } from '../common/toastr.service';
 
 @Component({
-    selector: 'tournaments-list',
     template: `
     <div>
         <h1>Upcoming Tournaments</h1>

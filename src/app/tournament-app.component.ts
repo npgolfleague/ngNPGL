@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'tournament-app',
   template: `
       <nav-bar></nav-bar>
-      <tournaments-list></tournaments-list>
+      <router-outlet></router-outlet>
       `
 })
 export class TournamentAppComponent {

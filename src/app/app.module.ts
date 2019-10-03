@@ -6,16 +6,21 @@ import { TournamentThumbnailComponent } from './tournaments/tournament-thumbnail
 import { NavBarComponent } from './nav/navbar.component';
 import { TournamentService } from './tournaments/shared/tournament.service';
 import { ToastrService } from './common/toastr.service';
+import { TournamentDetailsComponent } from './tournaments/tournament-details/tournament-details.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from 'src/routes';
 
 @NgModule({
   declarations: [
     TournamentAppComponent,
     TournamentsListComponent,
     TournamentThumbnailComponent,
+    TournamentDetailsComponent,
     NavBarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TournamentService, ToastrService],
   bootstrap: [TournamentAppComponent]
