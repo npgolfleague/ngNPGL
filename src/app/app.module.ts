@@ -9,6 +9,7 @@ import { ToastrService } from './common/toastr.service';
 import { TournamentDetailsComponent } from './tournaments/tournament-details/tournament-details.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from 'src/routes';
+import { CreateTournamentComponent } from './tournaments/shared/create-tournament.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { appRoutes } from 'src/routes';
     TournamentsListComponent,
     TournamentThumbnailComponent,
     TournamentDetailsComponent,
+    CreateTournamentComponent,
     NavBarComponent
   ],
   imports: [
