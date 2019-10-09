@@ -1,11 +1,20 @@
-import { TournamentsListComponent } from './app/tournaments/tournaments-list.component';
-import { TournamentDetailsComponent } from './app/tournaments/tournament-details/tournament-details.component';
-import { Routes } from '@angular/router'
-import { CreateTournamentComponent } from './app/tournaments/shared/create-tournament.component';
+import { TournamentsListComponent, 
+    TournamentDetailsComponent, 
+    TournamentListResolver, 
+    CreateTournamentComponent, 
+    TournamentRouteActivator} from './app/tournaments/index'
+import { Routes } from "@angular/router"
+import { Error404Component } from './app/errors/404.component';
+
 
 export const appRoutes:Routes = [
-    { path: 'tournaments' , component: TournamentsListComponent },
-    { path: 'tournaments/new', component: CreateTournamentComponent },
-    { path: 'tournaments/:id', component: TournamentDetailsComponent },
-    { path: '', redirectTo: '/tournaments', pathMatch: 'full' }
+
+{ path: 'tournaments/new', component: CreateTournamentComponent, canDeactivate: ['canDeactivateCreateTournament'] },
+{ path: 'tournaments', component: TournamentsListComponent, resolve: {tournaments:TournamentListResolver} },
+{ path: 'tournaments/:id', component: TournamentDetailsComponent, canActivate: [TournamentRouteActivator] },
+{ path: '404', component: Error404Component },
+{ path: '', redirectTo: '/tournaments', pathMatch: 'full'},
+{ path: 'golfer', loadChildren: './golfer/golfer.module#GolferModule'},
+
+
 ]

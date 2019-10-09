@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
+import { ITournament } from './tournament.model';
 
 @Injectable()
 export class TournamentService {
    // constructor(private http:Http) { }
     
-    getTournaments(){
-        return TOURNAMENTS
+    getTournaments():Observable<ITournament[]>{
+        let subject = new Subject<ITournament[]>()
+        setTimeout(() => {subject.next(TOURNAMENTS); subject.complete(); }, 2100)
+        return subject
     }
     getTournament(id:number) {
         return TOURNAMENTS.find(tournament => tournament.id === id)
     }
 }
 
-const TOURNAMENTS = [
+const TOURNAMENTS: ITournament[] = [
     {
     id: 1,
     league: 'NPGL',
-    date: '09/26/20',
+    date: new Date ('09/26/20'),
     time: '05:30 pm',
     course: 'Eagles Forest',
     imageUrl: './assets/images/NPGL.png',
@@ -61,7 +65,7 @@ const TOURNAMENTS = [
     {
         id: 2,
         league: 'NPGL',
-        date: '10/03/20',
+        date: new Date ('10/03/20'),
         time: '05:30 pm',
         course: 'Eagles Forest',
         imageUrl: './assets/images/NPGL.png',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TournamentService } from '../shared/tournament.service';
 import { ActivatedRoute } from '@angular/router';
+import { ITournament } from '../shared/tournament.model';
 
 @Component({
     templateUrl: './tournament-details.component.html',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
     `]
 })
 export class TournamentDetailsComponent implements OnInit{
-    tournament:any
+    tournament: ITournament
     constructor(private tournamentService:TournamentService, private route:ActivatedRoute) {
 
     }

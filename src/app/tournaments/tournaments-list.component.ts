@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TournamentService } from './shared/tournament.service';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { ToastrService } from '../common/toastr.service';
+import { ActivatedRoute } from '@angular/router';
+import { ITournament } from './shared/tournament.model';
 
 @Component({
     template: `
@@ -18,14 +20,14 @@ import { ToastrService } from '../common/toastr.service';
 })
 
 export class TournamentsListComponent implements OnInit {
-    tournaments:any[]
+    tournaments: ITournament[]
 
-    constructor(private tournamentService: TournamentService, private toastr: ToastrService) {
+    constructor(private tournamentService: TournamentService, private toastr: ToastrService, private route:ActivatedRoute) {
         
     }
 
     ngOnInit(){
-        this.tournaments = this.tournamentService.getTournaments()
+        this.tournaments = this.route.snapshot.data['tournaments']
     }
 
     handleThumbnailClick(tournamentCourse: any) {

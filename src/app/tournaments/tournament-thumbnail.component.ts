@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ITournament } from './shared/tournament.model';
 
 @Component({
     selector: 'tournament-thumbnail',
@@ -17,5 +18,10 @@ import { Component, Input } from '@angular/core';
         `]
 })
 export class TournamentThumbnailComponent {
-    @Input() tournament: any
+    @Input() tournament: ITournament
+    getStartTimeStyle():any {
+        if (this.tournament && this.tournament.time === '8:00 am')
+            return { color: '#003300', 'font-weight': 'bold'}
+        return { }
+    }
 }
